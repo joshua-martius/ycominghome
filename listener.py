@@ -39,7 +39,7 @@ def removeToken():
 
 def checkPing(hostnames):
     for host in hostnames:    
-        if os.system("ping -q -c 1 " + host) == 0:
+        if os.system("timeout 0.5 ping -q -c 1 " + host) == 0:
             return True
 try:
     while True:
