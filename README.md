@@ -16,6 +16,7 @@ pip3 install phue
     "groupsToTurnOn": [
         ""
     ],
-    "bridgeAddress": ""
+    "bridgeAddress": "",
+    "timeUntilTimeOut": 1.0
 }
 ```
