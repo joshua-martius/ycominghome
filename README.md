@@ -20,3 +20,7 @@ pip3 install phue
     "timeUntilTimeOut": 1.0
 }
 ```
+Get config.json via terminal:
+```bash
+$ curl https://pastebin.com/raw/mbW9EJpr > config.json
+```
