@@ -21,6 +21,12 @@ def sendHeartbeat():
 def turnOffLights():
     for group in hue.groups:
         group.on = False
+    return True
+
+def areLightsOff():
+    for group in hue.groups:
+        if group.on:
+            return False
     return
 
 def turnOnLights():
@@ -56,9 +62,14 @@ try:
         else: # if shouldnt be at home
             if athome:
                 print("Should be Home: No | Is at Home: Yes")
-                turnOnLights()
-                setToken()
-                print("Turned on lights and set token.")
+                if areLightsOff(): # if didnt come home within sleepe time
+                    turnOnLights()
+                    setToken()
+                    print("Turned on lights and set token.")
+                else:
+                    print("Came home within sleep time. Not turning on lights but settig token.")
+                    setToken()
+
             else: # shouldnt be at home and isnt
                 print("Should be Home: No | Is at Home: No")
         time.sleep(config["sleeptime"])
