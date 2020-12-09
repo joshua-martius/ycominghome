@@ -27,7 +27,7 @@ def areLightsOff():
     for group in hue.groups:
         if group.on:
             return False
-    return
+    return True
 
 def turnOnLights():
     for group in hue.groups:
